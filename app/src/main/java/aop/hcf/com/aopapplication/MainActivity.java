@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import java.lang.annotation.Annotation;
+
 import aop.hcf.com.aoplibrary.annotation.LogTrace;
 import aop.hcf.com.aoplibrary.annotation.TestTrace;
 
@@ -19,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             @TestTrace
             public void onClick(View v) {
-//                try {
-//                    Annotation ann = this.getClass().getDeclaredMethod("onClick", new Class[]{View.class}).getAnnotation(LogTrace.class);
-//                } catch (NoSuchMethodException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    Annotation ann = this.getClass().getDeclaredMethod("onClick", new Class[]{View.class}).getAnnotation(LogTrace.class);
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
